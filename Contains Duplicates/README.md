@@ -5,7 +5,7 @@ Starting from worst time complexity to the best one:
 Time complexity: O(N^2), memory: O(1)
 
 The naive approach would be to run a iteration for each element and see whether a duplicate value can be found: this results in O(N^2) time complexity.
-
+```
 public boolean containsDuplicate(int[] nums) {
 
         for(int i = 0; i < nums.length; i++) {
@@ -17,10 +17,11 @@ public boolean containsDuplicate(int[] nums) {
         }
         return false;
     }
+ ```
 Time complexity: O(N lg N), memory: O(1) - not counting the memory used by sort
 
 Since it is trivial task to find duplicates in sorted array, we can sort it as the first step of the algorithm and then search for consecutive duplicates.
-
+```
     public boolean containsDuplicate(int[] nums) {
 
         Arrays.sort(nums);
@@ -31,10 +32,11 @@ Since it is trivial task to find duplicates in sorted array, we can sort it as t
         }
         return false;
     }
+```
 Time complexity: O(N), memory: O(N)
 
 Finally we can used a well known data structure hash table that will help us to identify whether an element has been previously encountered in the array.
-
+```
 public boolean containsDuplicate(int[] nums) {
 
     final Set<Integer> distinct = new HashSet<Integer>();
@@ -46,4 +48,5 @@ public boolean containsDuplicate(int[] nums) {
     }
     return false;
 }
+```
 This is trivial but quite nice example of space-time tradeoff.
